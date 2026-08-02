@@ -7,6 +7,7 @@
 const PICTURES = [
   { img: "box-logo-wall.jpg", caption: "The box logo wall — 30+ colorways framed", kind: "room" },
   { img: "gallery-wall.jpg", caption: "The gallery wall — twelve framed sets", kind: "room" },
+  { img: "collector-hallway.jpg", caption: "The collector hallway — framed sticker runs from wall to wall", kind: "room" },
   { img: "hallway-frames-1.jpg", caption: "Hallway frames — box logo runs", kind: "room" },
   { img: "hallway-frames-2.jpg", caption: "Two framed box logo sets, up close", kind: "room" },
   { img: "hallway-collages.jpg", caption: "Collage row in the hallway", kind: "room" },

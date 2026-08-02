@@ -1,5 +1,11 @@
 # Never Miss Out — Change Log
 
+## Collector hallway update — August 2, 2026
+
+- Added a new optimized photograph of Anthony's collector hallway.
+- Featured the photograph in the Collector Room Design editorial panel, preserving its portrait composition.
+- Added it to the Private Collection gallery with a concise room-design caption and consultation link.
+
 ## Photo collection update — August 2, 2026
 
 - Reviewed 21 supplied collection photographs and avoided duplicating 10 images that were already present.
