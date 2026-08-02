@@ -1,5 +1,11 @@
 # Never Miss Out — Change Log
 
+## Native artwork process video — August 2, 2026
+
+- Replaced the YouTube embed with a directly hosted, web-compatible H.264 MP4.
+- Preserved the vertical 9:16 presentation with muted autoplay, looping, and inline mobile playback.
+- Reduced the source from approximately 68 MB to approximately 20 MB for faster delivery.
+
 ## Final artwork Short — August 2, 2026
 
 - Replaced the unavailable process upload with the finalized under-60-second YouTube Short.
