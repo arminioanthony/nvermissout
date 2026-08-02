@@ -1,5 +1,11 @@
 # Never Miss Out — Change Log
 
+## Artwork process video — August 2, 2026
+
+- Added a vertical YouTube Short to the Private Collection page as an Inside the Process feature.
+- Preserved the original 9:16 framing without cropping, stretching, or autoplay.
+- Added a responsive desktop-and-mobile layout and a direct path to commission a display.
+
 ## Company voice update — August 2, 2026
 
 - Replaced customer-facing references to Anthony with a consistent company “we” voice.

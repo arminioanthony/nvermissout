@@ -105,6 +105,8 @@ img { display: block; max-width: 100%; }
 .editorial-image { border-radius: var(--radius); box-shadow: var(--shadow); min-height: 520px; overflow: hidden; position: relative; }
 .editorial-image img { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; }
 .editorial-image__tag { background: var(--paper); border-radius: 999px; bottom: 1rem; color: var(--ink); font-size: .66rem; font-weight: 800; left: 1rem; letter-spacing: .1em; padding: .55rem .8rem; position: absolute; text-transform: uppercase; }
+.portrait-video { aspect-ratio: 9 / 16; justify-self: center; max-width: 380px; width: 100%; }
+.portrait-video iframe { border: 0; border-radius: var(--radius); box-shadow: var(--shadow); display: block; height: 100%; width: 100%; }
 .editorial-copy h2 { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4.9rem); font-weight: 400; letter-spacing: -.04em; line-height: .94; }
 .editorial-copy p { color: var(--ink-soft); margin: 1.2rem 0 1.7rem; max-width: 52ch; }
 .editorial-copy .quote { border-left: 3px solid var(--blue); color: var(--ink); font-family: var(--serif); font-size: 1.4rem; padding-left: 1.1rem; }
