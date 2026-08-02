@@ -1,0 +1,41 @@
+# ── macOS / OS junk ─────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+
+# ── Secrets / credentials (none exist today — this is defensive) ──
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa*
+*.secret
+secrets.*
+credentials.*
+*.credentials
+
+# ── Editor / tooling ────────────────────────────
+.vscode/
+.idea/
+*.swp
+*~
+
+# ── Dependencies / build output (not used today, but safe) ──
+node_modules/
+dist/
+build/
+.cache/
+
+# ── Private working files (NOT part of the public site) ──
+# The internal inventory checklist tool — keep it off GitHub so it
+# can never end up on the live site.
+review.html
+# Internal photo-matching notes.
+owned-confirmed.txt
+# Backup of the original full 903-sticker catalog.
+products-FULL-903-backup.js.txt
