@@ -1,5 +1,10 @@
 # Never Miss Out — Change Log
 
+## Artwork video replacement — August 2, 2026
+
+- Replaced the original age-restricted artwork process Short with the new unlisted upload.
+- Preserved the responsive 9:16 presentation and privacy-enhanced YouTube embed.
+
 ## Artwork process video — August 2, 2026
 
 - Added a vertical YouTube Short to the Private Collection page as an Inside the Process feature.
