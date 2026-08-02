@@ -1,5 +1,10 @@
 # Never Miss Out — Change Log
 
+## Final artwork Short — August 2, 2026
+
+- Replaced the unavailable process upload with the finalized under-60-second YouTube Short.
+- Confirmed the replacement is publicly viewable and not age-restricted before publishing it.
+
 ## Artwork video replacement — August 2, 2026
 
 - Replaced the original age-restricted artwork process Short with the new unlisted upload.
