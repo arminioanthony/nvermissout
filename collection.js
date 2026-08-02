@@ -14,9 +14,9 @@
   }));
 
   const presentations = {
-    artwork: { status: 'Original artwork · Created by Anthony', action: 'Commission an Original Piece →', request: 'Custom artwork inspired by: ' },
-    process: { status: 'Creative process · Built by Anthony', action: 'Start a Commission →', request: 'Commission a custom collector display inspired by: ' },
-    room: { status: 'Collector display · Curated by Anthony', action: 'Plan My Collector Space →', request: 'Collector room design inspired by: ' },
+    artwork: { status: 'Original artwork · Created by Never Miss Out', action: 'Commission an Original Piece →', request: 'Custom artwork inspired by: ' },
+    process: { status: 'Creative process · Built by Never Miss Out', action: 'Start a Commission →', request: 'Commission a custom collector display inspired by: ' },
+    room: { status: 'Collector display · Curated by Never Miss Out', action: 'Plan My Collector Space →', request: 'Collector room design inspired by: ' },
     collection: { status: 'Private collection · Reference', action: 'Request Access →', request: 'Help me find something inspired by: ' }
   };
 

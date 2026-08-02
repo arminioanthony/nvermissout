@@ -29,6 +29,6 @@ const PICTURES = [
   { img: "magazine-collage-finished.jpg", caption: "Magazine and sticker collage — finished and framed", kind: "artwork" },
   { img: "introduction-display-collage.jpg", caption: "Introduction — original collector display made with printed ephemera and stickers", kind: "artwork" },
   { img: "street-culture-map-collage.jpg", caption: "Street Culture — New York magazine and map collage", kind: "artwork" },
-  { img: "anthony-framing-display.jpg", caption: "Anthony assembling a custom collector display", kind: "process" },
+  { img: "anthony-framing-display.jpg", caption: "A custom collector display in progress", kind: "process" },
   { img: "sneakers-soccer-ball-collection.jpg", caption: "Sneakers, accessories, and collector-room details", kind: "collection" },
 ];

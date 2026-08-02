@@ -6,7 +6,7 @@
 //   tag:   small badge on the card (brand/type), "" = hidden
 //
 // Images: most are eBay stock photos; ones marked "board photo"
-// in the comment are cropped from Anthony's own pin-board picture.
+// in the comment are cropped from our own pin-board picture.
 // Delete the line of any pin you don't want listed.
 // ============================================================
 const PINS = [
@@ -44,7 +44,7 @@ const PINS = [
   { name: "Supreme Rent My Face Button Black", img: "supreme-rent-my-face-button-black.jpg", price: null, tag: "button" }, // board photo
   { name: "Supreme Rap-A-Lot Records Pin SS17", img: "supreme-rap-a-lot-records-pin.jpg", price: null, tag: "collab" },
 
-  // ---- PENDING ID — pulled from the site until Anthony names them ----
+  // ---- PENDING ID — pulled from the site until we name them ----
   // { name: "Supreme Umbrella Man Pin", img: "supreme-umbrella-man-pin.jpg", price: null, tag: "" }, // board photo
   // { name: "Supreme Oval Logo Pin", img: "supreme-oval-logo-pin.jpg", price: null, tag: "" }, // board photo
   // { name: "Supreme Bull 'S' Pin", img: "supreme-bull-s-pin.jpg", price: null, tag: "" }, // board photo

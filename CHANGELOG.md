@@ -1,5 +1,11 @@
 # Never Miss Out — Change Log
 
+## Company voice update — August 2, 2026
+
+- Replaced customer-facing references to Anthony with a consistent company “we” voice.
+- Renamed the About Anthony navigation and page language to About Us.
+- Updated service descriptions, calls to action, captions, metadata, and accessibility text without changing the underlying services or contact details.
+
 ## Collector hallway update — August 2, 2026
 
 - Added a new optimized photograph of Anthony's collector hallway.
