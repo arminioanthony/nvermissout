@@ -1,9 +1,8 @@
 (function () {
   const selectedSetups = [
-    'framed-16-slot.jpg', 'nine-frames-wall.jpg', 'frame-shop-long.jpg', 'frame-shop-canvas.jpg',
+    'framed-16-slot.jpg', 'frame-shop-long.jpg',
     'binder-two-pages.jpg', 'binder-dining-table.jpg', 'sneaker-racks.jpg', '30-years-shelf.jpg',
-    'fypm-framed.jpg', 'nyc-map-collage.jpg', 'chinatown-raid-collage.jpg', 'four-framed-sheets.jpg',
-    'sticker-wall-overhead.jpg', 'table-mega-spread.jpg', 'pins-case.jpg', 'axe-wall.jpg'
+    'fypm-framed.jpg', 'chinatown-raid-collage.jpg', 'sticker-wall-overhead.jpg', 'pins-case.jpg', 'axe-wall.jpg'
   ];
   const items = PICTURES.map(function (item) {
     return { src: 'assets/pictures/' + item.img, caption: item.caption, kind: item.kind || 'collection' };

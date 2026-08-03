@@ -1,5 +1,12 @@
 # Never Miss Out — Change Log
 
+## Image cleanup and homepage refresh — August 2, 2026
+
+- Curated the Private Collection gallery from 42 repetitive views to 27 distinct selections.
+- Removed two exact duplicate files from the sticker reference library.
+- Added two new original process photographs and assigned each a distinct homepage role.
+- Replaced repeated homepage imagery with unique collection, room, and binder photographs.
+
 ## Native artwork process video — August 2, 2026
 
 - Replaced the YouTube embed with a directly hosted, web-compatible H.264 MP4.
