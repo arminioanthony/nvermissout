@@ -1,6 +1,5 @@
 (function () {
   const selectedSetups = [
-    'framed-16-slot.jpg', 'frame-shop-long.jpg',
     'binder-two-pages.jpg', 'binder-dining-table.jpg', 'sneaker-racks.jpg', '30-years-shelf.jpg',
     'fypm-framed.jpg', 'chinatown-raid-collage.jpg', 'sticker-wall-overhead.jpg', 'pins-case.jpg', 'axe-wall.jpg'
   ];

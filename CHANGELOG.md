@@ -1,5 +1,11 @@
 # Never Miss Out — Change Log
 
+## Canvas wraps and 16-logo series — August 31, 2026
+
+- Added a dedicated Private Collection portfolio section for the canvas-wrap process and completed box-logo display series.
+- Featured both 16-logo frames, installed hallway views, the nine vertical studies, and the complete sixteen-piece vertical composition.
+- Added concise descriptions and direct commission or collector-room-design calls to action without duplicating the same photographs in the general gallery.
+
 ## Five-work homepage gallery — August 31, 2026
 
 - Rebuilt the homepage opening as an immersive gallery featuring five of the strongest original works.
