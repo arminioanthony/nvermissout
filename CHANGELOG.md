@@ -1,5 +1,12 @@
 # Never Miss Out — Change Log
 
+## Five-work homepage gallery — August 31, 2026
+
+- Rebuilt the homepage opening as an immersive gallery featuring five of the strongest original works.
+- Made the lead collage and four supporting works visible together on desktop, with a responsive mobile presentation.
+- Removed competing homepage photography so the original artwork controls the first impression.
+- Moved process photography to the About and Custom Displays pages where it supports the story without diluting the portfolio.
+
 ## Image cleanup and homepage refresh — August 2, 2026
 
 - Curated the Private Collection gallery from 42 repetitive views to 27 distinct selections.
