@@ -6,6 +6,7 @@
 // Curated Sept 2026: trimmed to the strongest shots, duplicates removed.
 // ============================================================
 const PICTURES = [
+  { img: "pin-case-full.jpg", caption: "The pin case — enamel pins and one-offs, framed", kind: "room" },
   { img: "collector-hallway.jpg", caption: "The collector hallway — framed sticker runs from wall to wall", kind: "room" },
   { img: "gallery-wall.jpg", caption: "The gallery wall — framed box logo sets", kind: "room" },
   { img: "world-famous-box.jpg", caption: "World Famous — framed shadow box", kind: "artwork" },

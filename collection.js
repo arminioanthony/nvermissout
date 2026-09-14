@@ -3,7 +3,6 @@
   const selectedSetups = {
     'axe-wall.jpg': 'room',
     'fypm-framed.jpg': 'artwork',
-    'pins-case.jpg': 'room',
     'chinatown-raid-collage.jpg': 'artwork',
     'sticker-wall-overhead.jpg': 'collection'
   };
