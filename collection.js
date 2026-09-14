@@ -1,14 +1,18 @@
 (function () {
-  const selectedSetups = [
-    'binder-two-pages.jpg', 'binder-dining-table.jpg', 'sneaker-racks.jpg', '30-years-shelf.jpg',
-    'fypm-framed.jpg', 'chinatown-raid-collage.jpg', 'sticker-wall-overhead.jpg', 'pins-case.jpg', 'axe-wall.jpg'
-  ];
-  const items = PICTURES.map(function (item) {
-    return { src: 'assets/pictures/' + item.img, caption: item.caption, kind: item.kind || 'collection' };
-  }).concat(SETUPS.filter(function (item) {
-    return selectedSetups.indexOf(item.img) !== -1;
+  // Curated Sept 2026: the strongest set-up shots, each with its own framing.
+  const selectedSetups = {
+    'axe-wall.jpg': 'room',
+    'fypm-framed.jpg': 'artwork',
+    'pins-case.jpg': 'room',
+    'chinatown-raid-collage.jpg': 'artwork',
+    'sticker-wall-overhead.jpg': 'collection'
+  };
+  const items = SETUPS.filter(function (item) {
+    return Object.prototype.hasOwnProperty.call(selectedSetups, item.img);
   }).map(function (item) {
-    return { src: 'assets/setups/' + item.img, caption: item.caption, kind: 'collection' };
+    return { src: 'assets/setups/' + item.img, caption: item.caption, kind: selectedSetups[item.img] };
+  }).concat(PICTURES.map(function (item) {
+    return { src: 'assets/pictures/' + item.img, caption: item.caption, kind: item.kind || 'collection' };
   }));
 
   const presentations = {
