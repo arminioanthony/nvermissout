@@ -6,6 +6,7 @@
 // ============================================================
 const PICTURES = [
   { img: "box-logo-wall.jpg", caption: "The box logo wall — 30+ colorways framed", kind: "room" },
+  { img: "box-logo-sticker-grid.jpg", caption: "Sixteen box logo stickers — original releases from the archive", kind: "collection" },
   { img: "gallery-wall.jpg", caption: "The gallery wall — twelve framed sets", kind: "room" },
   { img: "collector-hallway.jpg", caption: "The collector hallway — framed sticker runs from wall to wall", kind: "room" },
   { img: "hallway-collages.jpg", caption: "Collage row in the hallway", kind: "room" },
