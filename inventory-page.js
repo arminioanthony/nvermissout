@@ -19,13 +19,18 @@
     const body = document.createElement('div'); body.className = 'card__body';
     addText(body, 'h3', 'card__name', item.name);
     addText(body, 'p', 'card__desc', item.desc);
+    const isReference = config.reference === true;
     const isUnavailable = item.sold === true;
-    addText(body, 'p', isUnavailable ? 'card__status card__status--private' : 'card__status', isUnavailable ? 'Archive · Not available' : 'Available');
+    const statusText = isReference
+      ? 'Reference · Availability unconfirmed'
+      : (isUnavailable ? 'Archive · Not available' : 'Available');
+    addText(body, 'p', (isUnavailable && !isReference) ? 'card__status card__status--private' : 'card__status', statusText);
     const actions = document.createElement('div'); actions.className = 'card__actions';
     const request = document.createElement('a'); request.className = 'card__btn card__btn--primary';
-    request.href = 'request-access.html?item=' + encodeURIComponent((isUnavailable ? 'Something similar to ' : '') + item.name + (item.size ? ' — size ' + item.size : ''));
-    request.textContent = isUnavailable ? 'Request something similar' : 'Ask about this piece';
+    const prefix = isReference ? 'Help me find: ' : (isUnavailable ? 'Something similar to ' : '');
+    request.href = 'request-access.html?item=' + encodeURIComponent(prefix + item.name + (item.size ? ' — size ' + item.size : ''));
+    request.textContent = isReference ? 'Request Access →' : (isUnavailable ? 'Request something similar' : 'Ask about this piece');
     actions.appendChild(request); body.appendChild(actions); article.appendChild(imageWrap); article.appendChild(body); grid.appendChild(article);
   });
-  count.textContent = items.length + ' listed ' + (items.length === 1 ? 'piece' : 'pieces');
+  count.textContent = items.length + (config.reference === true ? ' reference ' : ' listed ') + (items.length === 1 ? 'piece' : 'pieces');
 })();
