@@ -4,7 +4,12 @@
     'axe-wall.jpg': 'room',
     'fypm-framed.jpg': 'artwork',
     'chinatown-raid-collage.jpg': 'artwork',
-    'sticker-wall-overhead.jpg': 'collection'
+    'sticker-wall-overhead.jpg': 'collection',
+    'sb-dunks-poster.jpg': 'available',
+    'hoodies-bed-grid.jpg': 'available',
+    'binder-mickey-multicolor.jpg': 'available',
+    'binder-ibca.jpg': 'available',
+    'binder-stars-repeat.jpg': 'available'
   };
   const items = SETUPS.filter(function (item) {
     return Object.prototype.hasOwnProperty.call(selectedSetups, item.img);
@@ -18,7 +23,8 @@
     artwork: { status: 'Original artwork · Created by Never Miss Out', action: 'Commission an Original Piece →', request: 'Custom artwork inspired by: ' },
     process: { status: 'Creative process · Built by Never Miss Out', action: 'Start a Commission →', request: 'Commission a custom collector display inspired by: ' },
     room: { status: 'Collector display · Curated by Never Miss Out', action: 'Plan My Collector Space →', request: 'Collector room design inspired by: ' },
-    collection: { status: 'Private collection · Reference', action: 'Request Access →', request: 'Help me find something inspired by: ' }
+    collection: { status: 'Private collection · Reference', action: 'Request Access →', request: 'Help me find something inspired by: ' },
+    available: { status: 'Private collection · Available to inquire', action: 'Ask About This Piece →', request: 'Purchase inquiry: ' }
   };
 
   const gallery = document.getElementById('collectionGallery');
