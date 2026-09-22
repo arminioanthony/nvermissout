@@ -1,0 +1,414 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The Sticker Book — Never Miss Out</title><meta name="description" content="Flip through the real Never Miss Out sticker binder, front cover to back. Forty-two pages of Supreme stickers, every one of them real."><meta name="theme-color" content="#0b1220"><link rel="stylesheet" href="styles.css?v=20260815-gallery-align"><style>
+:root{--night:#0b1220;--night-2:#101a2d;--night-3:#16223a;--cream:#f4f1e9;--cream-soft:#a7aec0;--blue-bright:#6280ff;--ring:#8c93a3;}
+.book-section{--line-dark:rgba(244,241,233,.12);}
+/* Tokens from nvermissout.com styles.css, set in the site's dark "night" register.
+     Deliberately single-theme: the pages are black binder sheets and read best on navy. */
+  :root{
+    --night:#0b1220;
+    --night-2:#101a2d;
+    --night-3:#16223a;
+    --cream:#f4f1e9;
+    --cream-soft:#a7aec0;
+    --blue:#3157d5;
+    --blue-bright:#6280ff;
+    --line:rgba(244,241,233,.12);
+    --ring:#8c93a3;
+    --serif:"DM Serif Display",Georgia,serif;
+    --sans:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color-scheme:dark;
+  }
+.book{
+    position:relative;
+    margin:0 auto;
+    width:100%;
+    max-width:1100px;
+    aspect-ratio:1800/1164;
+    perspective:2600px;
+  }
+.book::after{ /* soft floor shadow under the open book */
+    content:"";position:absolute;left:6%;right:6%;bottom:-26px;height:34px;
+    background:radial-gradient(ellipse at center,rgba(0,0,0,.55),transparent 70%);
+    z-index:-1;
+  }
+.page{
+    position:absolute;top:0;bottom:0;width:50%;
+    background:#0d0f14;overflow:hidden;cursor:zoom-in;
+  }
+.page img{display:block;width:100%;height:100%;object-fit:cover;}
+.page.left{left:0;border-radius:6px 0 0 6px;}
+.page.right{right:0;border-radius:0 6px 6px 0;}
+.page.empty{cursor:default;background:var(--night-2);}
+.page.empty img{display:none;}
+  /* spine: gutter shading on both inner edges */
+  .page.left::after,.page.right::after{
+    content:"";position:absolute;top:0;bottom:0;width:9%;pointer-events:none;
+  }
+.page.left::after{right:0;background:linear-gradient(to left,rgba(0,0,0,.5),transparent);}
+.page.right::after{left:0;background:linear-gradient(to right,rgba(0,0,0,.5),transparent);}
+
+  /* binder rings down the spine */
+  .rings{position:absolute;left:50%;top:0;bottom:0;width:0;z-index:6;pointer-events:none;}
+.rings span{
+    position:absolute;left:-11px;width:22px;height:12px;border-radius:7px;
+    border:2.5px solid var(--ring);
+    background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(0,0,0,.25));
+    box-shadow:0 1px 3px rgba(0,0,0,.6);
+  }
+.rings span:nth-child(1){top:14%;}
+.rings span:nth-child(2){top:48%;}
+.rings span:nth-child(3){top:82%;}
+
+  /* the turning leaf */
+  .leaf{
+    position:absolute;top:0;bottom:0;width:50%;
+    transform-style:preserve-3d;z-index:5;
+    transition:transform .72s cubic-bezier(.45,.05,.25,1);
+  }
+.leaf.fwd{left:50%;transform-origin:left center;}
+.leaf.back{left:0;transform-origin:right center;}
+.leaf .face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    background:#0d0f14;overflow:hidden;
+  }
+.leaf .face img{display:block;width:100%;height:100%;object-fit:cover;}
+.leaf .face.b{transform:rotateY(180deg);}
+.leaf.fwd .face.f{border-radius:0 6px 6px 0;}
+.leaf.fwd .face.b{border-radius:6px 0 0 6px;}
+.leaf.back .face.f{border-radius:6px 0 0 6px;}
+.leaf.back .face.b{border-radius:0 6px 6px 0;}
+.leaf .face::after{ /* shading sweeps across the leaf as it turns */
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to right,rgba(0,0,0,.35),transparent 40%);
+    opacity:0;transition:opacity .72s ease;
+  }
+.leaf.turning .face::after{opacity:1;}
+
+  /* single-page mode (phones) */
+  .book.single{aspect-ratio:900/1164;max-width:520px;}
+.book.single .page{width:100%;border-radius:6px;}
+.book.single .page.left{display:none;}
+.book.single .page.right::after{display:none;}
+.book.single .rings{display:none;}
+.book.single .page.right{transition:transform .32s ease,opacity .32s ease;}
+.book.single .page.right.slide-out-l{transform:translateX(-18%);opacity:0;}
+.book.single .page.right.slide-out-r{transform:translateX(18%);opacity:0;}
+
+  /* ---------- controls ---------- */
+  .controls{
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+    margin-top:44px;
+  }
+.btn{
+    font:inherit;font-weight:600;font-size:15px;
+    color:var(--cream);background:var(--night-3);
+    border:1px solid var(--line-dark);border-radius:999px;
+    padding:11px 20px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:background .15s ease,border-color .15s ease;
+  }
+.btn:hover:not(:disabled){background:#1d2c4a;border-color:rgba(98,128,255,.5);}
+.btn:focus-visible{outline:2px solid var(--blue-bright);outline-offset:2px;}
+.btn:disabled{opacity:.35;cursor:default;}
+.counter{
+    min-width:10.5em;text-align:center;
+    font-variant-numeric:tabular-nums;font-size:15px;color:var(--cream-soft);
+  }
+.counter b{color:var(--cream);font-weight:600;}
+.jump{
+    font:inherit;font-size:14px;color:var(--cream);
+    background:var(--night-2);border:1px solid var(--line-dark);border-radius:999px;
+    padding:9px 14px;cursor:pointer;
+  }
+.jump:focus-visible{outline:2px solid var(--blue-bright);outline-offset:2px;}
+.progress{
+    max-width:420px;height:3px;margin:22px auto 0;background:var(--line-dark);border-radius:3px;overflow:hidden;
+  }
+.progress span{display:block;height:100%;background:var(--blue-bright);width:0;transition:width .35s ease;}
+.hint{
+    text-align:center;margin-top:16px;font-size:13px;color:var(--cream-soft);letter-spacing:.02em;
+  }
+kbd{
+    font-family:var(--sans);font-size:11.5px;border:1px solid var(--line-dark);
+    border-radius:5px;padding:1px 6px;color:var(--cream);
+  }
+
+  /* ---------- zoom ---------- */
+  .zoom{
+    position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+    background:rgba(5,9,17,.94);padding:20px;cursor:zoom-out;
+  }
+.zoom img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6);}
+.zoom .close{
+    position:absolute;top:16px;right:16px;
+  }
+@media (max-width:760px){
+    .wrap{padding-block:26px 48px;}
+.controls{margin-top:30px;gap:10px;}
+.counter{min-width:7.5em;order:-1;flex-basis:100%;}
+.hint .desk{display:none;}
+  }
+@media (min-width:761px){ .hint .mob{display:none;} }
+@media (prefers-reduced-motion: reduce){
+    .leaf{transition:none;}
+.book.single .page.right{transition:none;}
+.progress span{transition:none;}
+  }
+</style>
+</head><body><a class="skip-link" href="#main">Skip to content</a><div class="access-bar">The Sticker Book · Front cover to back · Every sticker is real</div>
+<header class="nav"><div class="nav__inner"><a class="logo" href="index.html"><span class="logo__mark">N/M/O</span><span class="logo__words">Never Miss Out<small>Access to what others missed</small></span></a><button class="nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation"><span></span><span></span><span></span></button><nav class="nav__links" id="site-menu"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="collection.html">Private Collection</a><a class="is-here" href="sticker-book.html">Sticker Book</a><a href="custom-displays.html">Custom Displays</a><a href="request-access.html">Request Access</a><a href="room-design.html">Room Design</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a class="nav__cta" href="request-access.html?item=Sticker%20request">Request a sticker</a></nav></div></header>
+<main id="main"><section class="page-hero page-hero--image" style="--page-image:url('assets/sticker-book/cover-front.jpg')"><div class="page-hero__inner"><div><p class="eyebrow">The sticker book</p><h1>Open the book.</h1></div><p>Forty-two pages of the real binder, front cover to back, in the order they sit on the shelf. Every sticker here is a real sticker that exists. Turn the pages, or click one to look closer.</p></div></section>
+<section class="section book-section" style="background:var(--night);color:var(--cream);"><div style="max-width:1180px;margin:0 auto;padding-block:10px 20px;">
+<div class="stage" id="stage">
+    <div class="book" id="book" aria-live="polite">
+      <div class="page left" id="pageL" role="button" tabindex="0"><img id="imgL" alt=""></div>
+      <div class="page right" id="pageR" role="button" tabindex="0"><img id="imgR" alt=""></div>
+      <div class="rings" aria-hidden="true"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="prev" type="button" aria-label="Previous page">← Previous</button>
+    <div class="counter" id="counter"></div>
+    <button class="btn" id="next" type="button" aria-label="Next page">Next →</button>
+    <select class="jump" id="jump" aria-label="Jump to page"></select>
+  </div>
+  <div class="progress"><span id="progress"></span></div>
+  <p class="hint"><span class="desk">Use <kbd>←</kbd> <kbd>→</kbd> to turn pages · click a page to zoom</span><span class="mob">Swipe to turn · tap a page to zoom</span></p>
+
+</div></section>
+<section class="section"><div class="section__head"><div><p class="section__kicker">Looking for one of these?</p><h2 class="section__title">Find it in the reference library.</h2></div></div><p style="max-width:62ch;margin:0 0 18px;">The book is the collection as it sits on the shelf. The <a href="stickers.html">sticker reference library</a> is the same collection searchable by name, season, year, and type, with a request link on every one.</p><a class="btn btn--primary" href="stickers.html">Search sticker references</a> <a class="btn" href="request-access.html?item=Sticker%20request">Request a sticker</a></section></main>
+<footer class="footer"><div class="footer__inner"><div class="footer__brand"><h2>Never Miss Out.</h2><p>The sticker library is a reference tool supported by our collection and network.</p></div><div class="footer__links"><h3>Shop</h3><a href="clothing.html">Apparel</a><a href="shoes.html">Sneakers</a><a href="pins.html">Pins</a><a href="artwork.html">Artwork</a></div><div class="footer__links"><h3>Connect</h3><a href="request-access.html">Request Access</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div><div class="footer__bottom"><p>© <span data-current-year></span> Never Miss Out · New York, NY</p><p>Independent reseller and reference archive. Not affiliated with, endorsed by, or sponsored by Supreme or any other brand displayed. All trademarks belong to their respective owners.</p></div></footer><script src="site.js"></script>
+<script>
+
+const PAGES = [
+  { src:"assets/sticker-book/cover-front.jpg", alt:"Front cover of the sticker book, collaged with Supreme stickers", cover:true },
+  { src:"assets/sticker-book/p01.jpg", alt:"Sticker book page 1" },
+  { src:"assets/sticker-book/p02.jpg", alt:"Sticker book page 2" },
+  { src:"assets/sticker-book/p03.jpg", alt:"Sticker book page 3" },
+  { src:"assets/sticker-book/p04.jpg", alt:"Sticker book page 4" },
+  { src:"assets/sticker-book/p05.jpg", alt:"Sticker book page 5" },
+  { src:"assets/sticker-book/p06.jpg", alt:"Sticker book page 6" },
+  { src:"assets/sticker-book/p07.jpg", alt:"Sticker book page 7" },
+  { src:"assets/sticker-book/p08.jpg", alt:"Sticker book page 8" },
+  { src:"assets/sticker-book/p09.jpg", alt:"Sticker book page 9" },
+  { src:"assets/sticker-book/p10.jpg", alt:"Sticker book page 10" },
+  { src:"assets/sticker-book/p11.jpg", alt:"Sticker book page 11" },
+  { src:"assets/sticker-book/p12.jpg", alt:"Sticker book page 12" },
+  { src:"assets/sticker-book/p13.jpg", alt:"Sticker book page 13" },
+  { src:"assets/sticker-book/p14.jpg", alt:"Sticker book page 14" },
+  { src:"assets/sticker-book/p15.jpg", alt:"Sticker book page 15" },
+  { src:"assets/sticker-book/p16.jpg", alt:"Sticker book page 16" },
+  { src:"assets/sticker-book/p17.jpg", alt:"Sticker book page 17" },
+  { src:"assets/sticker-book/p18.jpg", alt:"Sticker book page 18" },
+  { src:"assets/sticker-book/p19.jpg", alt:"Sticker book page 19" },
+  { src:"assets/sticker-book/p20.jpg", alt:"Sticker book page 20" },
+  { src:"assets/sticker-book/p21.jpg", alt:"Sticker book page 21" },
+  { src:"assets/sticker-book/p22.jpg", alt:"Sticker book page 22" },
+  { src:"assets/sticker-book/p23.jpg", alt:"Sticker book page 23" },
+  { src:"assets/sticker-book/p24.jpg", alt:"Sticker book page 24" },
+  { src:"assets/sticker-book/p25.jpg", alt:"Sticker book page 25" },
+  { src:"assets/sticker-book/p26.jpg", alt:"Sticker book page 26" },
+  { src:"assets/sticker-book/p27.jpg", alt:"Sticker book page 27" },
+  { src:"assets/sticker-book/p28.jpg", alt:"Sticker book page 28" },
+  { src:"assets/sticker-book/p29.jpg", alt:"Sticker book page 29" },
+  { src:"assets/sticker-book/p30.jpg", alt:"Sticker book page 30" },
+  { src:"assets/sticker-book/p31.jpg", alt:"Sticker book page 31" },
+  { src:"assets/sticker-book/p32.jpg", alt:"Sticker book page 32" },
+  { src:"assets/sticker-book/p33.jpg", alt:"Sticker book page 33" },
+  { src:"assets/sticker-book/p34.jpg", alt:"Sticker book page 34" },
+  { src:"assets/sticker-book/p35.jpg", alt:"Sticker book page 35" },
+  { src:"assets/sticker-book/p36.jpg", alt:"Sticker book page 36" },
+  { src:"assets/sticker-book/p37.jpg", alt:"Sticker book page 37" },
+  { src:"assets/sticker-book/p38.jpg", alt:"Sticker book page 38" },
+  { src:"assets/sticker-book/p39.jpg", alt:"Sticker book page 39" },
+  { src:"assets/sticker-book/p40.jpg", alt:"Sticker book page 40" },
+  { src:"assets/sticker-book/p41.jpg", alt:"Sticker book page 41" },
+  { src:"assets/sticker-book/p42.jpg", alt:"Sticker book page 42" },
+  { src:"assets/sticker-book/cover-back.jpg", alt:"Back cover of the sticker book", cover:true }
+];
+
+const book = document.getElementById('book');
+const stage = document.getElementById('stage');
+const pageL = document.getElementById('pageL'), pageR = document.getElementById('pageR');
+const imgL = document.getElementById('imgL'), imgR = document.getElementById('imgR');
+const prevBtn = document.getElementById('prev'), nextBtn = document.getElementById('next');
+const counter = document.getElementById('counter'), jump = document.getElementById('jump');
+const progress = document.getElementById('progress');
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+const narrow = window.matchMedia('(max-width: 760px)');
+
+let single = narrow.matches;
+let idx = -1;         // spread mode: -1 = closed book (front cover alone on the right)
+let busy = false;
+
+function step(){ return single ? 1 : 2; }
+function lastIdx(){ return single ? PAGES.length - 1 : PAGES.length - 1; }
+
+function setImg(el, wrap, i){
+  const p = PAGES[i];
+  if (p){ el.src = p.src; el.alt = p.alt; wrap.classList.remove('empty'); wrap.dataset.i = i; }
+  else { el.removeAttribute('src'); el.alt = ''; wrap.classList.add('empty'); delete wrap.dataset.i; }
+}
+function preload(i){ [i, i+1, i+2, i+3, i-1, i-2].forEach(function(k){ if (PAGES[k]) { const im = new Image(); im.src = PAGES[k].src; } }); }
+
+function render(){
+  book.classList.toggle('single', single);
+  if (single){ setImg(imgR, pageR, Math.max(idx,0)); }
+  else { setImg(imgL, pageL, idx); setImg(imgR, pageR, idx + 1); }
+  const n = PAGES.length;
+  const label = function(i){ if (i < 0 || i >= n) return null; if (PAGES[i].cover) return i === 0 ? 'Front cover' : 'Back cover'; return 'Page ' + i; };
+  if (single){
+    counter.innerHTML = '<b>' + label(Math.max(idx,0)) + '</b>';
+  } else {
+    const L = label(idx), R = label(idx + 1);
+    counter.innerHTML = '<b>' + [L, R].filter(Boolean).join(' · ') + '</b>';
+  }
+  prevBtn.disabled = single ? idx <= 0 : idx < 0;
+  nextBtn.disabled = single ? idx >= lastIdx() : idx + 1 >= lastIdx();
+  jump.value = String(idx);
+  const shown = single ? Math.max(idx,0) + 1 : Math.min(idx + 2, n);
+  progress.style.width = (shown / n * 100) + '%';
+  preload(idx);
+}
+
+function buildJump(){
+  jump.innerHTML = '';
+  const n = PAGES.length;
+  if (single){
+    for (let i = 0; i < n; i++){ const o = document.createElement('option'); o.value = i; o.textContent = PAGES[i].cover ? (i === 0 ? 'Front cover' : 'Back cover') : 'Page ' + i; jump.appendChild(o); }
+  } else {
+    const add = function(v, t){ const o = document.createElement('option'); o.value = v; o.textContent = t; jump.appendChild(o); };
+    add(-1, 'Front cover');
+    for (let i = 1; i < n - 1; i += 2){ add(i, (i + 1 < n - 1) ? 'Pages ' + i + '–' + (i + 1) : 'Page ' + i); }
+    add(n - 1, 'Back cover');
+  }
+}
+
+function makeLeaf(dir, frontI, backI){
+  const leaf = document.createElement('div');
+  leaf.className = 'leaf ' + dir;
+  const f = document.createElement('div'); f.className = 'face f';
+  const b = document.createElement('div'); b.className = 'face b';
+  [[f, frontI], [b, backI]].forEach(function(pair){
+    const p = PAGES[pair[1]];
+    if (p){ const im = document.createElement('img'); im.src = p.src; im.alt = ''; pair[0].appendChild(im); }
+  });
+  leaf.appendChild(f); leaf.appendChild(b);
+  return leaf;
+}
+
+function go(target){
+  target = Math.max(single ? 0 : -1, Math.min(lastIdx(), target));
+  if (busy || target === idx) return;
+  const forward = target > idx;
+  const adjacent = Math.abs(target - idx) === step();
+
+  if (single){
+    if (reduced.matches || !adjacent){ idx = target; render(); return; }
+    busy = true;
+    pageR.classList.add(forward ? 'slide-out-l' : 'slide-out-r');
+    setTimeout(function(){
+      idx = target; render();
+      pageR.classList.remove('slide-out-l', 'slide-out-r');
+      busy = false;
+    }, 320);
+    return;
+  }
+
+  if (reduced.matches || !adjacent){ idx = target; render(); return; }
+
+  busy = true;
+  let leaf;
+  if (forward){
+    // leaf lifts off the right page: front = current right, back = next left
+    leaf = makeLeaf('fwd', idx + 1, target);
+    setImg(imgR, pageR, target + 1);          // revealed underneath
+  } else {
+    // leaf lifts off the left page: front = current left, back = previous right
+    leaf = makeLeaf('back', idx, target + 1);
+    setImg(imgL, pageL, target);              // revealed underneath
+  }
+  book.appendChild(leaf);
+  void leaf.offsetWidth;                       // commit the start state
+  leaf.classList.add('turning');
+  leaf.style.transform = forward ? 'rotateY(-180deg)' : 'rotateY(180deg)';
+
+  let done = false;
+  function finish(){
+    if (done) return; done = true;
+    idx = target; render();
+    leaf.remove(); busy = false;
+  }
+  leaf.addEventListener('transitionend', function(e){ if (e.propertyName === 'transform') finish(); });
+  setTimeout(finish, 900);                     // safety net if transitionend is skipped
+}
+
+prevBtn.addEventListener('click', function(){ go(idx - step()); });
+nextBtn.addEventListener('click', function(){ go(idx + step()); });
+jump.addEventListener('change', function(){ go(parseInt(jump.value, 10)); });
+
+document.addEventListener('keydown', function(e){
+  if (document.querySelector('.zoom')) {
+    if (e.key === 'Escape') closeZoom();
+    return;
+  }
+  if (e.target === jump) return;
+  if (e.key === 'ArrowRight'){ e.preventDefault(); go(idx + step()); }
+  if (e.key === 'ArrowLeft'){ e.preventDefault(); go(idx - step()); }
+});
+
+// swipe
+let sx = null, sy = null;
+stage.addEventListener('pointerdown', function(e){ sx = e.clientX; sy = e.clientY; });
+stage.addEventListener('pointerup', function(e){
+  if (sx === null) return;
+  const dx = e.clientX - sx, dy = e.clientY - sy;
+  sx = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.3){
+    stage.dataset.swiped = '1';
+    go(dx < 0 ? idx + step() : idx - step());
+    setTimeout(function(){ delete stage.dataset.swiped; }, 50);
+  }
+});
+
+// zoom
+let lastFocus = null;
+function openZoom(i){
+  const p = PAGES[i]; if (!p) return;
+  lastFocus = document.activeElement;
+  const z = document.createElement('div');
+  z.className = 'zoom'; z.setAttribute('role', 'dialog'); z.setAttribute('aria-label', 'Page ' + (i + 1));
+  z.innerHTML = '<img alt=""><button class="btn close" type="button">Close</button>';
+  z.querySelector('img').src = p.src;
+  z.querySelector('img').alt = p.alt;
+  z.addEventListener('click', closeZoom);
+  document.body.appendChild(z);
+  z.querySelector('.close').focus();
+}
+function closeZoom(){
+  const z = document.querySelector('.zoom'); if (z) z.remove();
+  if (lastFocus) lastFocus.focus();
+}
+[pageL, pageR].forEach(function(el){
+  el.addEventListener('click', function(){
+    if (stage.dataset.swiped || busy) return;
+    if (el.dataset.i !== undefined) openZoom(parseInt(el.dataset.i, 10));
+  });
+  el.addEventListener('keydown', function(e){
+    if ((e.key === 'Enter' || e.key === ' ') && el.dataset.i !== undefined){ e.preventDefault(); openZoom(parseInt(el.dataset.i, 10)); }
+  });
+});
+
+// switch between spread and single page when the screen crosses the breakpoint
+narrow.addEventListener('change', function(e){
+  single = e.matches;
+  if (!single) idx = (idx <= 0) ? -1 : (idx % 2 === 1 ? idx : idx - 1);
+  else idx = Math.max(idx, 0);
+  buildJump(); render();
+});
+
+buildJump();
+render();
+
+</script>
+</body></html>
